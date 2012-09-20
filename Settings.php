@@ -39,10 +39,10 @@ return array(
         // autojoin.channels (examples for which are located further down in
         // this file).
 
-        'AutoJoin',			// provided autojoin plugin (autojoins channels specified below)
-        'SudoHelloWorld',	// sudounlv hello world example
-        'SudoSayHello',		// sudounlv hello example
-		'SudoHelp', 		// sudounlv help example
+        'AutoJoin', // provided autojoin plugin (autojoins channels specified below)
+        'SudoHelloWorld', // sudounlv hello world example
+        'SudoSayHello', // sudounlv hello example
+        'SudoHelp', // sudounlv help example
 
         // A few other recommended plugins:
 
@@ -86,7 +86,7 @@ return array(
     // invoked like this: join #channel
     
     // Examples of supported values for autojoins.channel:
-	'autojoin.channels' => '#sudounlv-bots',
+    'autojoin.channels' => '#sudounlv-bots',
     // 'autojoin.channels' => array('#channel1', '#channel2'),
     // 'autojoin.channels' => array(
     //                            'host1' => '#channel1,#channel2',
