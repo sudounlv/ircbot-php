@@ -14,7 +14,7 @@ Bug reports/feature requests: http://github.com/phergie/phergie/issues
 
 ---------------------------------------
 
-Sudo Plugins
+*Sudo Plugins*
 
 *SudoHelp*
 !help <botName>
