@@ -1,4 +1,4 @@
-*Phergie*
+**Phergie**
 
 Phergie is an IRC bot written for PHP 5.2.
 
@@ -14,7 +14,7 @@ Bug reports/feature requests: http://github.com/phergie/phergie/issues
 
 ---------------------------------------
 
-*Sudo Plugins*
+**Sudo Plugins**
 
 *SudoHelp*
 !help <botName>
