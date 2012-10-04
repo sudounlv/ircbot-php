@@ -43,6 +43,7 @@ return array(
         'SudoHelloWorld', // sudounlv hello world example
         'SudoSayHello', // sudounlv hello example
         'SudoHelp', // sudounlv help example
+		'SudoLastFive',
 
         // A few other recommended plugins:
 
