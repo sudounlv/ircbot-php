@@ -17,9 +17,9 @@ Bug reports/feature requests: http://github.com/phergie/phergie/issues
 **Sudo Plugins**
 
 *SudoHelp*
-!help <botName>
+<br/>!help &lt;botName&gt;
 
 *SudoSayHello*
-hello <botName>
-/msg hello <botName>
+<br/>hello <botName>
+<br/>/msg hello &lt;botName&gt;
 
