@@ -26,3 +26,5 @@ Bug reports/feature requests: http://github.com/phergie/phergie/issues
 *SudoLastFive*
 <br/>!last5 &lt;nick&gt;
 
+*SudoLurkers*
+<br/>!lurkers;
