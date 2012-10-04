@@ -14,25 +14,23 @@ class Phergie_Plugin_SudoHelp extends Phergie_Plugin_Abstract
 	}
 
 	protected function getHelpMessages() {
-		$connection = $this->getConnection();
-		$botNick = $connection->getNick();
+		$botNick = $this->getConnection()->getNick();
 
 		$helpMessages = array();
 		$helpMessages['SudoHelp'] = "You can type !help {$botNick} in the channel you will get a list of commands.";
 		$helpMessages['SudoHelloWorld'] = "You can type 'hello world', and {$botNick} will say it back!";
 		$helpMessages['SudoSayHello'] = "You can type /msg {$botNick} hello (OR) hello {$botNick}, and {$botNick} will say hello back.";
+		$helpMessages['SudoLastFive'] = "You can type !last5 <username> to see the last five messages that user sent to the channel.";
+		$helpMessages['SudoLurkers'] = "You can type !lurkers and see a list of users who have not spoken in the channel for 30 minutes.";
 
 		return $helpMessages;
 	}
 
 	public function onCommandHelp() {
-		$connection = $this->getConnection();
-		$botNick = $connection->getNick();
-
+		$botNick = $this->getConnection()->getNick();
 		$prefix = $this->getConfig('command.prefix');
-		$event = $this->getEvent();
-		$input = $event->getArgument(1);
-		$source = $event->getSource();
+		$input = $this->getEvent()->getArgument(1);
+		$source = $this->getEvent()->getSource();
 		$helpMessages = $this->getHelpMessages();
 
 		$pattern = '/'.preg_quote($prefix).'\s*?help '.preg_quote($botNick).'/i';
@@ -43,8 +41,6 @@ class Phergie_Plugin_SudoHelp extends Phergie_Plugin_Abstract
 				}
 			}
 		}
-
-		return;
 	}
 
 }

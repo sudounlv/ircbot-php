@@ -6,6 +6,7 @@ class Phergie_Plugin_SudoLastFive extends Phergie_Plugin_Abstract {
 
 	public function onLoad() {
 		$this->getPluginHandler()->getPlugin('Command');
+		$this->joinTime = time();
 	}
 
 	/**
@@ -68,5 +69,9 @@ class Phergie_Plugin_SudoLastFive extends Phergie_Plugin_Abstract {
 			}
 		}
 	}
+
+	/**
+	 * Command to list lurkers
+	 */
 
 }

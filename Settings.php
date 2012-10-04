@@ -40,10 +40,11 @@ return array(
         // this file).
 
         'AutoJoin', // provided autojoin plugin (autojoins channels specified below)
-        'SudoHelloWorld', // sudounlv hello world example
-        'SudoSayHello', // sudounlv hello example
-        'SudoHelp', // sudounlv help example
+        'SudoHelloWorld',
+        'SudoSayHello',
+        'SudoHelp',
 		'SudoLastFive',
+		'SudoLurkers'
 
         // A few other recommended plugins:
 
