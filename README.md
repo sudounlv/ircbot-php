@@ -23,3 +23,6 @@ Bug reports/feature requests: http://github.com/phergie/phergie/issues
 <br/>hello <botName>
 <br/>/msg hello &lt;botName&gt;
 
+*SudoLastFive*
+<br/>!last5 &lt;nick&gt;
+
