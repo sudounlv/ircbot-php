@@ -1,6 +1,6 @@
 <?php
 
-class Phergie_Plugin_SudoLurkers extends Phergie_Plugin_Abstract {
+class Phergie_Plugin_SudoLurkers extends Phergie_Plugin_SudoAbstract {
 
 	protected $joinTime;
 	protected $activity = array();
@@ -9,6 +9,12 @@ class Phergie_Plugin_SudoLurkers extends Phergie_Plugin_Abstract {
 	public function onLoad() {
 		$this->getPluginHandler()->getPlugin('Command');
 		$this->joinTime = time();
+
+		$this->persistence = $this->config['sudolurkers.persistence'];
+
+		if($this->persistence) {
+			$this->restoreState('activity');
+		}
 	}
 
 	/**
@@ -17,6 +23,7 @@ class Phergie_Plugin_SudoLurkers extends Phergie_Plugin_Abstract {
 	 */
 	protected function logActivity($nick) {
 		$this->activity[trim($nick)] = time();
+		$this->persistState('activity');
 	}
 
 	/**
@@ -25,6 +32,7 @@ class Phergie_Plugin_SudoLurkers extends Phergie_Plugin_Abstract {
 	 */
 	protected function removeActivity($nick) {
 		unset($this->activity[trim($nick)]);
+		$this->persistState('activity');
 	}
 
 	/**
@@ -35,6 +43,7 @@ class Phergie_Plugin_SudoLurkers extends Phergie_Plugin_Abstract {
 	protected function moveActivity($oldNick, $newNick) {
 		$this->activity[trim($oldNick)] = $this->activity[trim($newNick)];
 		$this->removeActivity($oldNick);
+		$this->persistState('activity');
 	}
 
 	/**
@@ -81,7 +90,7 @@ class Phergie_Plugin_SudoLurkers extends Phergie_Plugin_Abstract {
 		}
 
 		$descArray = explode(' ', $this->getEvent()->getDescription());
-		$channel  = strtolower($array[1]);
+		$channel  = strtolower($descArray[1]);
 
 		for($i = 3; $i < sizeof($descArray); $i++) {
 			if(empty($descArray[$i])) {

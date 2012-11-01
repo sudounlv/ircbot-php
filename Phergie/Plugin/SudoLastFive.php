@@ -1,12 +1,19 @@
 <?php
 
-class Phergie_Plugin_SudoLastFive extends Phergie_Plugin_Abstract {
+class Phergie_Plugin_SudoLastFive extends Phergie_Plugin_SudoAbstract {
 
 	protected $messages = array();
 
 	public function onLoad() {
 		$this->getPluginHandler()->getPlugin('Command');
 		$this->joinTime = time();
+		$this->databaseConfig = $this->config['database'];
+
+		$this->persistence = $this->config['sudolastfive.persistence'];
+
+		if($this->persistence) {
+			$this->restoreState('messages');
+		}
 	}
 
 	/**
@@ -35,6 +42,7 @@ class Phergie_Plugin_SudoLastFive extends Phergie_Plugin_Abstract {
 			array_shift($this->messages[$nick]);
 		}
 		$this->messages[$nick][] = array('content' => $content, 'time' => time());;
+		$this->persistState('messages');
 	}
 
 	/**

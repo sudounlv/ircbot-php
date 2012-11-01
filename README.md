@@ -28,3 +28,36 @@ Bug reports/feature requests: http://github.com/phergie/phergie/issues
 
 *SudoLurkers*
 <br/>!lurkers;
+
+---------------------------------------
+
+**Persistence**
+
+Plug-ins that currently support persistence to maintain state: SudoLastFive, SudoLurkers
+
+1. Create this MySQL table:
+
+CREATE TABLE `plugin_state` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plugin_name` varchar(128) DEFAULT NULL,
+  `variable_name` varchar(128) DEFAULT NULL,
+  `variable_value` text,
+  PRIMARY KEY (`id`)
+)
+
+2. Set up your database properties in Settings.php:
+
+'database' => array(
+    'name' => '**your-database-name**',
+    'host' => '**your-database-host**',
+    'username' => '**username**',
+    'password' => '**password**root'
+)
+
+3. Configure plug-ins that support persistence in Settings.php:
+
+'sudolurkers.persistence' => true,
+
+'sudolastfive.persistence' => true,
+
+That should be it! :)
